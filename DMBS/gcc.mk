@@ -8,7 +8,7 @@
 
 DMBS_BUILD_MODULES         += GCC
 DMBS_BUILD_TARGETS         += size symbol-sizes all lib elf bin hex lss clean mostlyclean
-DMBS_BUILD_MANDATORY_VARS  += TARGET ARCH MCU SRC
+DMBS_BUILD_MANDATORY_VARS  += TARGET MCU SRC
 DMBS_BUILD_OPTIONAL_VARS   += BOARD OPTIMIZATION C_STANDARD CPP_STANDARD F_CPU C_FLAGS CPP_FLAGS ASM_FLAGS CC_FLAGS LD_FLAGS OBJDIR OBJECT_FILES DEBUG_TYPE DEBUG_LEVEL LINKER_RELAXATIONS COMPILER_PATH
 DMBS_BUILD_PROVIDED_VARS   +=
 DMBS_BUILD_PROVIDED_MACROS +=
@@ -87,6 +87,7 @@ ERROR_IF_EMPTY   ?= $(if $(strip $($(strip $(1)))), , $(error Makefile $(strip $
 ERROR_IF_NONBOOL ?= $(if $(filter Y N, $($(strip $(1)))), , $(error Makefile $(strip $(1)) option must be Y or N))
 
 # Default values of optionally user-supplied variables
+ARCH               ?= AVR8
 COMPILER_PATH      ?=
 OPTIMIZATION       ?= s
 F_CPU              ?=
