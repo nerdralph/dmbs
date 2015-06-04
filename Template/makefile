@@ -5,10 +5,13 @@
 #  dean [at] fourwalledcubicle [dot] com
 #        www.fourwalledcubicle.com
 #
+# 2015 Nerd Ralph fork
+# nerdralph.blogspot.ca
+#
 
 # Run "make help" for target help.
 
-MCU          = atmega328
+MCU          = atmega328p
 #ARCH         = AVR8
 F_CPU        = 16000000
 OPTIMIZATION = s
