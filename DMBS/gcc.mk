@@ -97,7 +97,7 @@ C_FLAGS            ?=
 CPP_FLAGS          ?=
 ASM_FLAGS          ?=
 CC_FLAGS           ?=
-OBJDIR             ?= .
+OBJDIR             ?= objs
 OBJECT_FILES       ?=
 DEBUG_FORMAT       ?= dwarf-2
 DEBUG_LEVEL        ?= 2
@@ -173,10 +173,12 @@ DEPENDENCY_FILES := $(OBJECT_FILES:%.o=%.d)
 
 # Create a list of common flags to pass to the compiler/linker/assembler
 BASE_CC_FLAGS    := -pipe -g$(DEBUG_FORMAT) -g$(DEBUG_LEVEL)
+#AVR8_CC_FLAGS := -mmcu=$(MCU) -fshort-enums -fno-inline-small-functions -fpack-struct
+AVR8_CC_FLAGS := -mmcu=$(MCU) -fshort-enums -fpack-struct
 ifeq ($(ARCH), AVR8)
-   BASE_CC_FLAGS += -mmcu=$(MCU) -fshort-enums -fno-inline-small-functions -fpack-struct
+   BASE_CC_FLAGS += $(AVR8_CC_FLAGS)
 else ifeq ($(ARCH), XMEGA)
-   BASE_CC_FLAGS += -mmcu=$(MCU) -fshort-enums -fno-inline-small-functions -fpack-struct
+   BASE_CC_FLAGS += $(AVR8_CC_FLAGS)
 else ifeq ($(ARCH), UC3)
    BASE_CC_FLAGS += -mpart=$(MCU:at32%=%) -masm-addr-pseudos
 endif
