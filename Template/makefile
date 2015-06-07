@@ -12,7 +12,6 @@
 # Run "make help" for target help.
 
 MCU          = atmega328p
-#ARCH         = AVR8
 F_CPU        = 16000000
 OPTIMIZATION = s
 TARGET       = Template
