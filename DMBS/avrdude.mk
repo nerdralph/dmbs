@@ -57,7 +57,7 @@ ERROR_IF_NONBOOL ?= $(if $(filter Y N, $($(strip $(1)))), , $(error Makefile $(s
 # Default values of optionally user-supplied variables
 AVRDUDE_PROGRAMMER ?= usbasp
 AVRDUDE_PORT       ?= usb
-AVRDUDE_FLAGS      ?=
+AVRDUDE_FLAGS      ?= -C /etc/avrdude.conf
 
 # Sanity check user supplied values
 $(foreach MANDATORY_VAR, $(DMBS_BUILD_MANDATORY_VARS), $(call ERROR_IF_UNSET, $(MANDATORY_VAR)))
