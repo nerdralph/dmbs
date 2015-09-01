@@ -180,7 +180,7 @@ else ifneq ($(findstring $(ARCH), UC3),)
 endif
 BASE_CC_FLAGS += -Wall -fno-strict-aliasing -funsigned-char -funsigned-bitfields -ffunction-sections
 BASE_CC_FLAGS += -I. -I../libs
-BASE_CC_FLAGS += -fno-hosted
+BASE_CC_FLAGS += -ffreestanding -flto
 BASE_CC_FLAGS += -DARCH=ARCH_$(ARCH)
 ifneq ($(F_CPU),)
    BASE_CC_FLAGS += -DF_CPU=$(F_CPU)UL
